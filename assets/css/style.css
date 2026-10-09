@@ -1,0 +1,107 @@
+/* ===== Netcrack: gaya khusus di luar utilitas Tailwind ===== */
+:root {
+  --gold: #d4af37;
+  --glass-bg: rgba(20, 17, 11, 0.55);
+  --glass-border: rgba(212, 175, 55, 0.22);
+}
+
+html { background: #070605; }
+body { min-height: 100vh; overflow-x: hidden; }
+[x-cloak] { display: none !important; }
+
+/* Cahaya emas di latar (membuat blur terlihat) */
+.nc-ambient {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(40rem 30rem at 12% 8%, rgba(212,175,55,.14), transparent 60%),
+    radial-gradient(34rem 26rem at 92% 38%, rgba(181,138,28,.12), transparent 60%),
+    radial-gradient(40rem 30rem at 30% 95%, rgba(212,175,55,.10), transparent 60%);
+}
+
+/* ===== Glassmorphism ===== */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 244, 200, 0.07);
+}
+.glass-strong {
+  background: rgba(10, 8, 5, 0.72);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 244, 200, 0.08);
+}
+.glass-light {
+  background: rgba(255, 244, 200, 0.06);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 244, 200, 0.14);
+}
+
+/* ===== Teks emas ===== */
+.gold-text {
+  background: linear-gradient(120deg, #f8de85 0%, #d4af37 45%, #8f6a14 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* ===== Tombol ===== */
+.btn-gold {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .75rem 1.5rem; border-radius: .75rem; font-weight: 600; color: #120d02;
+  background: linear-gradient(135deg, #f8de85, #d4af37 55%, #b58a1c);
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, .6);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn-gold:hover { transform: translateY(-1px); filter: brightness(1.07); box-shadow: 0 14px 34px -10px rgba(212,175,55,.8); }
+.btn-glass {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .75rem 1.5rem; border-radius: .75rem; font-weight: 600; color: #fff4c8;
+  transition: background .2s ease, border-color .2s ease;
+}
+.btn-glass:hover { background: rgba(212, 175, 55, .16); border-color: rgba(212, 175, 55, .5); }
+
+/* ===== Scroll horizontal tanpa scrollbar ===== */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ===== Scrollbar halaman ===== */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0d0b08; }
+::-webkit-scrollbar-thumb { background: #3a2f14; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #b58a1c; }
+
+/* ===== Kartu film ===== */
+.nc-card { transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .3s ease; }
+.nc-card:hover, .nc-card:focus-visible { transform: translateY(-4px); z-index: 20; box-shadow: 0 20px 50px -12px rgba(212,175,55,.45); border-color: rgba(212,175,55,.35) !important; }
+
+/* ===== Snap scroll (baris sisa film) ===== */
+.nc-snap-scroll { scroll-snap-type: x mandatory; }
+.nc-snap-item { scroll-snap-align: start; }
+
+/* ===== Skeleton ===== */
+.nc-skeleton {
+  background: linear-gradient(100deg, #14110b 30%, #241d0e 50%, #14110b 70%);
+  background-size: 200% 100%;
+  animation: nc-shimmer 1.6s linear infinite;
+}
+@keyframes nc-shimmer { to { background-position: -200% 0; } }
+
+:focus-visible { outline: 2px solid #f0c94f; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ===== Dropdown tahun rilis ===== */
+.nc-year-dropdown { min-width: 13rem; }
+.nc-year-dropdown .max-h-52 {
+  scrollbar-width: thin;
+  scrollbar-color: #3a2f14 transparent;
+}
+.nc-year-dropdown .max-h-52::-webkit-scrollbar { width: 4px; }
+.nc-year-dropdown .max-h-52::-webkit-scrollbar-track { background: transparent; }
+.nc-year-dropdown .max-h-52::-webkit-scrollbar-thumb { background: #3a2f14; border-radius: 4px; }
+

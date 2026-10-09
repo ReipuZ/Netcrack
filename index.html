@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Netcrack - Tonton film favoritmu</title>
+  <meta name="description" content="Netcrack: jelajahi film tren, populer, dan terbaik dengan tampilan sinematik emas dan hitam." />
+  <meta name="theme-color" content="#070605" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN) + konfigurasi tema -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="config/tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Urutan penting: config -> utils -> services -> store -> components -> app -> Alpine (paling akhir) -->
+  <script defer src="config/config.js"></script>
+  <script defer src="utils/helpers.js"></script>
+  <script defer src="services/api.js"></script>
+  <script defer src="store/app.js"></script>
+
+  <script defer src="components/navbar.js"></script>
+  <script defer src="components/hero.js"></script>
+  <script defer src="components/skeleton.js"></script>
+  <script defer src="components/movie-card.js"></script>
+  <script defer src="components/movie-row.js"></script>
+  <script defer src="components/search-results.js"></script>
+  <script defer src="components/modal.js"></script>
+  <script defer src="components/toast.js"></script>
+  <script defer src="components/footer.js"></script>
+
+  <script defer src="app.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-ink-950 font-sans text-zinc-200 antialiased" x-data>
+  <!-- Cahaya latar agar efek glass terlihat -->
+  <div class="nc-ambient" aria-hidden="true"></div>
+
+  <div id="navbar"></div>
+
+  <main>
+    <div id="hero"></div>
+    <div id="search-results"></div>
+    <div id="rows" class="relative z-10 pb-10"></div>
+  </main>
+
+  <div id="footer"></div>
+  <div id="modal"></div>
+  <div id="toast"></div>
+</body>
+</html>
